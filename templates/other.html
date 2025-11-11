@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Flask APP - About{% endblock %}
+
+{% block content %}
+<style>
+    .about-container {
+        padding: 40px;
+        text-align: center;
+    }
+    .about-title {
+        color: #e74c3c;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .info-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin: 30px 0;
+    }
+    .stat-item {
+        background: rgba(255,255,255,0.2);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+    }
+</style>
+
+<div class="about-container">
+    <h1 class="about-title">📖 About Our Flask Application</h1>
+    
+    <div class="info-card">
+        <h2>🌟 Why Flask Rocks!</h2>
+        <p>Flask is a lightweight WSGI web application framework in Python. It's designed to make getting started quick and easy, with the ability to scale up to complex applications.</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h3>🚀 Fast</h3>
+            <p>Lightweight & Efficient</p>
+        </div>
+        <div class="stat-item">
+            <h3>🔧 Flexible</h3>
+            <p>Customizable Structure</p>
+        </div>
+        <div class="stat-item">
+            <h3>🐍 Pythonic</h3>
+            <p>Clean Code</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <button class="btn" style="background: linear-gradient(45deg, #e74c3c, #c0392b);">
+            🎯 Learn More About Flask
+        </button>
+    </div>
+</div>
+{% endblock %}

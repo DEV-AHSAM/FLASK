@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Flask APP{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+    h1 {
+        color: #2c3e50;
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    p {
+        color: #2c3e50;
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    .feature-box {
+        background: #f8f9fa;
+        padding: 15px;
+        margin: 15px 0;
+        border-left: 4px solid #3498db;
+        border-radius: 4px;
+    }
+    .status {
+        color: #27ae60;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <h1>🚀 HELLO WORLD - Flask App Running!</h1>
+    <p>{{ new_value }}</p>
+    <ul>
+        {% for item in new_list %}
+            {% if item == 20 or item == 40 %}
+                <li style="color: green; font-weight: bold">{{ item }}</li>
+            {% else %}
+                <li>{{ item }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="feature-box">
+        <h3>✨ Template Features:</h3>
+        <ul>
+            <li>Responsive Design</li>
+            <li>Modern Gradient Background</li>
+            <li>Card-based Layout</li>
+            <li>Clean Typography</li>
+        </ul>
+    </div>
+
+    <div class="feature-box">
+        <h3>📊 App Status:</h3>
+        <p>Flask Server: <span class="status">✅ Running</span></p>
+        <p>Template: <span class="status">✅ Rendered Successfully</span></p>
+        <p>Styling: <span class="status">✅ CSS Loaded</span></p>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn" onclick="alert('Flask is awesome! 🐍')">
+            🎪 Click Me - I'm Styled!
+        </button>
+
+        <a href="{{ url_for('redirect') }}" class="btn btn-about">
+            📖 Learn More About Us
+        </a>
+    </div>
+</div>
+
+{% endblock %}
