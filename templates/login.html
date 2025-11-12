@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Flask APP</title>
+</head>
+<body>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    .login-container {
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    .login-title {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+    }
+    .section-title {
+        color: #2c3e50;
+        margin: 30px 0 20px 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #ecf0f1;
+        font-size: 1.4em;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #34495e;
+        font-weight: 500;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ecf0f1;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+    }
+    .form-group input:focus {
+        outline: none;
+        border-color: #3498db;
+    }
+    .file-input {
+        padding: 10px !important;
+        background: #f8f9fa;
+    }
+    .file-types {
+        font-size: 14px;
+        color: #7f8c8d;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    .login-btn {
+        width: 100%;
+        padding: 14px;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .login-btn:hover {
+        background: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .upload-btn {
+        background: #27ae60;
+    }
+    .upload-btn:hover {
+        background: #219653;
+    }
+    .login-links {
+        text-align: center;
+        margin-top: 25px;
+    }
+    .login-links a {
+        color: #3498db;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    .login-links a:hover {
+        text-decoration: underline;
+    }
+    .form-section {
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="login-container">
+    <h1 class="login-title">🔐 Login & File Upload</h1>
+
+    <!-- Login Section -->
+    <div class="form-section">
+        <h2 class="section-title">📝 User Login</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="login-btn">Sign In</button>
+        </form>
+    </div>
+
+    <!-- File Upload Section -->
+    <div class="form-section">
+        <h2 class="section-title">📁 File Upload</h2>
+        <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose File to Upload</label>
+                <input type="file" id="file" name="file" class="file-input"
+                       accept=".txt,.pdf,.doc,.docx,.xlsx,.xls" required>
+                <div class="file-types">Supported formats: TXT, PDF, DOC, DOCX, XLSX, XLS</div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">File Description (Optional)</label>
+                <input type="text" id="description" name="description"
+                       placeholder="Brief description of the file">
+            </div>
+
+            <button type="submit" class="login-btn upload-btn">📤 Upload File</button>
+        </form>
+    </div>
+
+    <div class="login-links">
+        <a href="#">Forgot password?</a>
+        <a href="#">Need help with upload?</a>
+    </div>
+</div>
+</body>
+</html>
