@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Session Data{% endblock %}
+
+{% block content %}
+<h2>Session Operations</h2>
+
+<!-- Show the message -->
+<div style="background: green; padding: 15px; border-radius: 5px; margin: 20px 0;">
+    <h3>Result:</h3>
+    <p>{{ message }}</p>
+</div>
+
+<!-- Navigation links -->
+<a href="{{ url_for('set_session_data') }}">SET SESSION DATA</a>
+<br>
+<a href="{{ url_for('get_session_data') }}">GET SESSION DATA</a>
+<br>
+<a href="{{ url_for('clear') }}">CLEAR SESSION DATA</a>
+<br><br>
+
+{% endblock %}
